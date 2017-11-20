@@ -1,0 +1,6 @@
+The two bugs that were found were: a Conditional Jump or move depends on uninitialized
+value(s)(dominion.c:661) as well as uninitialized values(dominion.c:850). I found these bugs through the
+use of Valgrind. valgrind --leak-check=full --log-file="logfile.out" -v <test file> produced log files of the
+valgrind instrumented process. One of the bugs was not that interesting (an uninitialized value) but the
+other (conditional jump depending on uninitialized value) was interesting. It was interesting because this
+reflects a core logical flaw in the game code.
